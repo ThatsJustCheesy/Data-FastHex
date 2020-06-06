@@ -1,13 +1,10 @@
-//
-//  Tests.m
-//  NSData+FastHex
-//
-//  Created by Jonathon Mah on 05/13/2015.
-//  Copyright (c) 2014 Jonathon Mah. All rights reserved.
-//
+// NSData_FastHex_TestsObjC.m
+// Originally created by Jonathon Mah on 05/13/2015.
+// Modified by Ian Gregory.
+// Copyright (c) 2014 Jonathon Mah. All rights reserved.
 
 #import <XCTest/XCTest.h>
-#import "NSData+FastHex.h"
+#import "Data+FastHex.h"
 
 
 @interface Tests : XCTestCase

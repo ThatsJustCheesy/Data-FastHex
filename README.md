@@ -1,12 +1,7 @@
-# NSData+FastHex
+# Data+FastHex
+## Fast hexadecimal string encoding/decoding for Swift's `Data` and `NSData`
 
-[![Version](https://img.shields.io/cocoapods/v/NSData-FastHex.svg?style=flat)](http://cocoapods.org/pods/NSData-FastHex)
-[![License](https://img.shields.io/cocoapods/l/NSData-FastHex.svg?style=flat)](http://cocoapods.org/pods/NSData-FastHex)
-[![Platform](https://img.shields.io/cocoapods/p/NSData-FastHex.svg?style=flat)](http://cocoapods.org/pods/NSData-FastHex)
-
-## Description
-
-NSData+FastHex adds a category on `NSData` to convert to and from a hexadecimal
+Data+FastHex extends `Data` and `NSData` to convert to and from a hexadecimal
 string representation. As the name implies, it has a focus on performance,
 without sacrificing code clarity.
 
@@ -22,40 +17,40 @@ make additional copies of data buffers, which is wasteful.
 * `-initWithBytesNoCopy:…` to avoid an extra copy of the encoded and decoded
   data and string buffers
 
-## Usage
+## Origin
 
-### Objective-C
+This is an adaptation of the original [NSData+FastHex library](https://github.com/jmah/NSData-FastHex) by [Jonathan Mah](https://github.com/jmah), me@JonathonMah.com. Jonathan owns most of the copyright, but makes it available under the MIT License. I added Swift Package Manager support and convenience methods that operate on Swift's `Data` type. My modifications are also available under the MIT License.
 
-```objective-c
-#import "NSData+FastHex.h"
-uint8_t bytes[] = {0xDE, 0xAD, 0xBE, 0xEF, 0x42};
-NSData *data = [NSData dataWithBytes:bytes length:sizeof(bytes)];
-NSString *hexString = [data hexStringRepresentation]; // => @"DEADBEEF42"
-NSData *decoded = [NSData dataWithHexString:hexString];
-```
+[The original](https://github.com/jmah/NSData-FastHex) is available through CocoaPods, so if you want that instead of SwiftPM, then by all means, use it.
 
-### Swift
+## Install
+
+### Swift Package Manager
+
+Add to your Package.swift:
 
 ```swift
-var bytes: [UInt8] = [0xDE, 0xAD, 0xBE, 0xEF, 0x42]
-var data = NSData(bytes: bytes, length: bytes.count)
-var hexString = data.hexStringRepresentation() // => "DEADBEEF42"
-var decoded = NSData(hexString: hexString)
+.package(url: "https://github.com/ThatsJustCheesy/Data-FastHex", from: "2.0.0")
 ```
 
-## Installation
+or do the equivalent in Xcode. The product name to specify as a target dependency is `"Data-FastHex"`.
 
-NSData+FastHex is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+## Use
 
-```ruby
-pod "NSData+FastHex"
+```swift
+import Data_FastHex
+
+let bytes: [UInt8] = [0xDE, 0xAD, 0xBE, 0xEF, 0x42]
+let data = Data(bytes: bytes, count: bytes.count)
+let hexString = data.hexStringRepresentation // => "DEADBEEF42"
+let decoded = Data(hexString: hexString)
 ```
 
-## Author
+## Authors
 
-Jonathon Mah, me@JonathonMah.com
+- Original library, actual bulk of the code: [Jonathon Mah](https://github.com/jmah), me@JonathonMah.com
+- SwiftPM interface: [Ian Gregory](https://github.com/ThatsJustCheesy)
 
 ## License
 
-NSData+FastHex is available under the MIT license. See the LICENSE file for more info.
+Data+FastHex is available under the MIT license. See the LICENSE file for more info.

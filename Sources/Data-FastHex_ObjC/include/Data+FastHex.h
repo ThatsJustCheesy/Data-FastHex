@@ -1,13 +1,8 @@
-//
-//  NSData+FastHex.h
-//  Pods
-//
-//  Created by Jonathon Mah on 2015-05-13.
-//
-//
+// Data+FastHex.h
+// Originally created by Jonathon Mah on 2015-05-13.
+// Modified by Ian Gregory.
 
 #import <Foundation/Foundation.h>
-
 
 #if !__has_feature(nullability)
 #define NS_ASSUME_NONNULL_BEGIN
@@ -15,7 +10,6 @@
 #define nullable
 #define nonnull
 #endif
-
 
 NS_ASSUME_NONNULL_BEGIN
 

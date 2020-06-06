@@ -1,0 +1,4 @@
+# TextMate settings file
+
+# Hide deleted files still tracked by git
+excludeSCMDeleted = true
